@@ -4,10 +4,11 @@
   </style>
   <template>
     <nx-param params="{{getParam}}" pattern="param1/param2"></nx-param>
-    <paper-tabs selected="{{ selectedpage }}" attr-for-selected="name">
+    <paper-tabs selected="{{selectedpage}}" attr-for-selected="name">
       <paper-tab name="/dashboard/home">Home</paper-tab>
       <paper-tab name="/dashboard/management">Work Timeline</paper-tab>
     </paper-tabs>
+    {{selectedpage}}
   </template>
   <script>
     Polymer({
@@ -17,17 +18,17 @@
         selectedpage: {
           type: Number,
           notify:true,
-          value:'/dashboard/home'
+          observer:'changelink'
         }
       },
-      observers:['changelink(selectedpage)'],
-      changelink:function(name){
-        if(typeof this.getParam != "undefined"){
-          this.changePath(name);
+      changelink:function(newVal,oldVal){
+        
+        if(typeof oldVal != "undefined"){
+          this.changePath(newVal);
         }
-        //var args = e.target.getAttribute('data-href');
-        //console.log(args);
-        //this.changePath(args);
+      },
+      ready:function(){
+        this.selectedpage = '/'+this.getParam.app+'/'+this.getParam.page;
       }
     });
   </script>
