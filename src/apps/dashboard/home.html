@@ -27,7 +27,7 @@
           id ="chart"
             type="column"
             options='{"title": "Bar height"}'
-            data="http://localhost:8080/data/1_chart-data.json">
+            data="[[resolveUrl('data/1_chart-data.json')]]">
           </google-chart>
           </div>
         </div>
@@ -39,7 +39,7 @@
            <google-chart
              type="pie"
              options='{"title": "Distribution of days in 2001H1"}'
-             data='http://localhost:8080/data/2_chart-data.json'
+             data="[[resolveUrl('data/2_chart-data.json')]]"
              selection='[{"row": 0}]'>
            </google-chart>
          </div>
@@ -51,7 +51,7 @@
           <google-chart
              type="area"
              options='{"title": "Days in a month"}'
-             data='http://localhost:8080/data/3_chart-data.json'>
+             data="[[resolveUrl('data/3_chart-data.json')]]">
            </google-chart>
         </div>
       </paper-card>
@@ -61,7 +61,7 @@
           <google-chart
             type="bar"
             options='{"title": "Days in a month"}'
-            data='http://localhost:8080/data/4_chart-data.json'>
+            data="[[resolveUrl('data/4_chart-data.json')]]">
           </google-chart>
         </div>
       </paper-card>
@@ -70,7 +70,7 @@
         <div class="card-content">bubble
           <google-chart
              type="bubble"
-             data='http://localhost:8080/data/5_chart-data.json'>
+             data="[[resolveUrl('data/5_chart-data.json')]]">
            </google-chart>
         </div>
       </paper-card>
@@ -80,7 +80,7 @@
           <google-chart
             type="candlestick"
             options='{"legend": "none"}'
-            data='http://localhost:8080/data/6_chart-data.json'>
+            data="[[resolveUrl('data/6_chart-data.json')]]">
           </google-chart>
         </div>
       </paper-card>
@@ -90,7 +90,7 @@
           <google-chart
               type="combo"
               options='{"seriesType": "bars", "series": {"2": {"type": "line"}}}'
-              data='http://localhost:8080/data/7_chart-data.json'>
+              data="[[resolveUrl('data/7_chart-data.json')]]">
             </google-chart>
         </div>
       </paper-card>
@@ -99,7 +99,7 @@
         <div class="card-content">geo
           <google-chart
              type="geo"
-             data='http://localhost:8080/data/8_chart-data.json'>
+             data="[[resolveUrl('data/8_chart-data.json')]]">
            </google-chart>
         </div>
       </paper-card>
@@ -109,7 +109,7 @@
           <google-chart
             type="histogram"
             options='{"title": "Days in a month", "legend": "none", "histogram": { "bucketSize": 1 }}'
-            data='http://localhost:8080/data/9_chart-data.json'>
+            data="[[resolveUrl('data/9_chart-data.json')]]">
           </google-chart>
         </div>
       </paper-card>
@@ -119,7 +119,7 @@
           <google-chart
              type="line"
              options='{"title": "Days in a month"}'
-             data='http://localhost:8080/data/10_chart-data.json'>
+             data="[[resolveUrl('data/10_chart-data.json')]]">
            </google-chart>
         </div>
       </paper-card>
@@ -129,7 +129,7 @@
           <google-chart
              type="scatter"
              options='{"legend": "none"}'
-             data='http://localhost:8080/data/11_chart-data.json'>
+             data="[[resolveUrl('data/11_chart-data.json')]]">
            </google-chart>
         </div>
       </paper-card>
@@ -139,7 +139,7 @@
           <google-chart
              type="stepped-area"
              options='{"title": "Days in a month"}'
-             data='http://localhost:8080/data/12_chart-data.json'>
+             data="[[resolveUrl('data/12_chart-data.json')]]">
            </google-chart>
         </div>
       </paper-card>

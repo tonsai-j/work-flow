@@ -1,0 +1,40 @@
+<!-- call by management-data.html -->
+<link rel="import" href="my-editmenu.html">
+<dom-module id="my-list">
+  <style include="iron-flex iron-flex-alignment"></style>
+  <style>
+  paper-item{
+    border: 1px solid #A4A4A4;
+  }
+  .editMenu{
+    position: absolute;
+    right: 0;
+  }
+  </style>
+  <template>
+  <paper-item on-tap="getdata">
+    <div class="layout horizontal">
+      <div >{{menu.nameMenu}}</div>
+      <div class="editMenu">
+        <my-editmenu></my-editmenu>
+      </div>
+    </div>
+
+  </paper-item>
+  </template>
+  <script>
+    Polymer({
+      is: "my-list",
+      properties: {
+        menuid:{
+          type: Object,
+          notify:true
+        }
+      },
+      getdata:function() {
+        var preData = this.menu.index = this.index;
+        this.menuid=this.menu;
+      }
+    });
+  </script>
+</dom-module>

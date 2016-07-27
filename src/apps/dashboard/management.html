@@ -3,6 +3,8 @@
 <link rel="import" href="components/my-stepformwizard.html">
 <link rel="import" href="components/my-listtree.html">
 <link rel="import" href="components/my-worktimeline.html">
+<link rel="import" href="components/my-editdata.html">
+<link rel="import" href="components/my-list.html">
 <dom-module id="dashboard-management">
 <style include="iron-flex iron-flex-alignment">  </style>
 <style>
@@ -33,11 +35,12 @@ paper-listbox{
 }
 </style>
 <template>
-  <my-data id="data" ldata={{data}} menuselect="{{menuselected}}" dataselect={{selecteds}} stepmenu={{sfwizard}} treemenu={{treemenu}}></my-data>
+  <my-data ldata="{{data}}" stepmenu={{sfwizard}} treemenu={{treemenu}}></my-data>
   <div class="layout vertical">
-    <paper-card>{{data}}
-      <my-worktimeline numselect="{{menudatas}}" datalength="{{lists}}"></my-worktimeline>
+    <paper-card>
+      <my-worktimeline numselect="{{menudatas}}" datalength="{{data}}"></my-worktimeline>
     </paper-card>
+    <!--{{menudatas}}-->
     <paper-card>
       <dashboard-components-stepformwizard sfwizard={{sfwizard}}></dashboard-components-stepformwizard>
     </paper-card>
@@ -50,8 +53,8 @@ paper-listbox{
         <div class="card-content"></div>
         <div class="flex">
           <paper-listbox>
-            <template is="dom-repeat" items="{{kkk}}">
-              <my-list menu="{{item}}" menuid={{selected}}></my-list>
+            <template is="dom-repeat" items="[[filterData(menudatas)]]">
+              <my-list menu="{{item}}" menuid="{{selected}}" index="{{index}}"></my-list>
             </template>
           </paper-listbox>
         </div>
@@ -59,7 +62,7 @@ paper-listbox{
       <paper-card class="flex">
         <div class="heading">Data </div>
         <div class="card-content flex">
-          <my-editdata dataselect="{{modelRight}}" dataselectindex="{{dataright}}" idparent="{{menudatas}}"></my-editdata>
+          <my-editdata dataselect="{{selected}}" dataselectindex="{{dataright}}" idparent="{{menudatas}}"></my-editdata>
         </div>
       </paper-card>
     </div>
@@ -71,45 +74,38 @@ paper-listbox{
 Polymer({
   is: "dashboard-management",
   properties: {
-    menudatas: {
-      type: Number,
-      value:-1
-    },
-    menunum: {
-      type: Number,
-      value:0
-    },
-    kkk : {
+    data:{
       type:Object,
+      observer:'test'
     },
-    selected:{
-      type:Object,
+    menudatas:{
+      type:Number
     }
   },
-  observers: [
-    'changenum(menudatas)',
-    'checkData(lists)',
-    'checkDataRight(dataright)'
-  ],
-  checkDataRight:function(data){
-    this.modelRight = JSON.parse(JSON.stringify(data));
-  },
-  checkData:function(data){
-    if (this.menudatas > -1){
-      this.kkk = this.lists[this.menudatas].detail;
+  filterData:function(){
+    if(typeof this.data[this.menudatas] != "undefined"){
+      return this.data[this.menudatas].detail;
     }
   },
-  changenum: function(menudatas) {
-    if (menudatas > -1){
-      this.kkk = this.lists[menudatas].detail;
-    }
+  behaviors: [nxPageBehavior],
+  created:function(){
+    this.nxSetTitle('Work Timeline');
+    this.nxSetLayout('layout-main');
   },
-  attached: function() {
-    this.globalData= document.getElementById('data');
+  test:function(newVal,oldVal){
+    if(typeof oldVal != "undefined"){
+      var selectC = JSON.parse(JSON.stringify(this.menudatas));
+      this.menudatas = 10;
+      this.menudatas = selectC;
+    }
+    
   },
   addmenu:function(){
-    var nowDateTime=Date.now()
-    this.globalData.adddata(this.menudatas,{
+    var nowDateTime=Date.now();
+
+    var model = document.querySelector('my-data');
+
+    model.addData(this.menudatas,{
       id:nowDateTime ,
       nameMenu:"ข้อมูล 1" ,
       detail:"รายละเอียด 1",
@@ -119,20 +115,10 @@ Polymer({
       check2:false,
       check3:true
     });
-    // this.checkData(this.lists);
-    // menudatas++;
-    this.kkk = JSON.parse(JSON.stringify(this.lists[this.menudatas].detail));
-    console.log(this.kkk);
-    console.log(this.lists);
-  },
-  behaviors: [
-        nxPageBehavior
-        // nxLocalesBehavior
-      ],
-      created:function(){
-        // this.nxSetTitle('page 1');
-        this.nxSetLayout('layout-main');
-      }
+  }
+
+
+
 });
 </script>
 </dom-module>
