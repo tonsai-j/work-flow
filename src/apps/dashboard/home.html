@@ -1,0 +1,161 @@
+<dom-module id="dashboard-home">
+  <style is="custom-style" include="iron-flex iron-flex-alignment"></style>
+  <style>
+  .heading{
+    margin-left: 15px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+  }
+  paper-card{
+    margin: 10px;
+  }
+  .card-content{
+    border-top: 1px solid #F4F4F4;
+  }
+  google-chart {
+      height: 300px;
+      width: 400px;
+    }
+  </style>
+  <template>
+    <div class="layout horizontal wrap around-justified">
+      <paper-card>
+        <div class="heading">chart 1</div>
+        <div class="card-content">column
+          <div class="chart">
+          <google-chart
+          id ="chart"
+            type="column"
+            options='{"title": "Bar height"}'
+            data="http://localhost:8080/data/1_chart-data.json">
+          </google-chart>
+          </div>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 2</div>
+        <div class="card-content">pie
+          <div id="selection">
+           <google-chart
+             type="pie"
+             options='{"title": "Distribution of days in 2001H1"}'
+             data='http://localhost:8080/data/2_chart-data.json'
+             selection='[{"row": 0}]'>
+           </google-chart>
+         </div>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 3</div>
+        <div class="card-content">area
+          <google-chart
+             type="area"
+             options='{"title": "Days in a month"}'
+             data='http://localhost:8080/data/3_chart-data.json'>
+           </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 4</div>
+        <div class="card-content">bar
+          <google-chart
+            type="bar"
+            options='{"title": "Days in a month"}'
+            data='http://localhost:8080/data/4_chart-data.json'>
+          </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 5</div>
+        <div class="card-content">bubble
+          <google-chart
+             type="bubble"
+             data='http://localhost:8080/data/5_chart-data.json'>
+           </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 6</div>
+        <div class="card-content">candlestick
+          <google-chart
+            type="candlestick"
+            options='{"legend": "none"}'
+            data='http://localhost:8080/data/6_chart-data.json'>
+          </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 7</div>
+        <div class="card-content">combo
+          <google-chart
+              type="combo"
+              options='{"seriesType": "bars", "series": {"2": {"type": "line"}}}'
+              data='http://localhost:8080/data/7_chart-data.json'>
+            </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 8</div>
+        <div class="card-content">geo
+          <google-chart
+             type="geo"
+             data='http://localhost:8080/data/8_chart-data.json'>
+           </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 9</div>
+        <div class="card-content">histogram
+          <google-chart
+            type="histogram"
+            options='{"title": "Days in a month", "legend": "none", "histogram": { "bucketSize": 1 }}'
+            data='http://localhost:8080/data/9_chart-data.json'>
+          </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 10</div>
+        <div class="card-content">line-chart
+          <google-chart
+             type="line"
+             options='{"title": "Days in a month"}'
+             data='http://localhost:8080/data/10_chart-data.json'>
+           </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 11</div>
+        <div class="card-content">scatter
+          <google-chart
+             type="scatter"
+             options='{"legend": "none"}'
+             data='http://localhost:8080/data/11_chart-data.json'>
+           </google-chart>
+        </div>
+      </paper-card>
+      <paper-card>
+        <div class="heading">chart 12</div>
+        <div class="card-content">stepped-area
+          <google-chart
+             type="stepped-area"
+             options='{"title": "Days in a month"}'
+             data='http://localhost:8080/data/12_chart-data.json'>
+           </google-chart>
+        </div>
+      </paper-card>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "dashboard-home",
+      behaviors: [
+        nxPageBehavior
+        // nxLocalesBehavior
+      ],
+      created:function(){
+        // this.nxSetTitle('page 1');
+        this.nxSetLayout('layout-main');
+      }
+    });
+  </script>
+</dom-module>

@@ -1,0 +1,69 @@
+<dom-module id="my-listtree">
+<style include="iron-flex iron-flex-alignment iron-flex-factors">
+.heading{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.card-content{
+  padding: 20px;
+}
+.bor{
+  /*border: 1px solid #000;*/
+  position: relative;
+  padding-left: 10px;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+a::before{
+  content: '- ';
+}
+</style>
+<template>
+  <div class="card-content">
+    <div class="heading">Tree</div>
+    <!-- <div class="flex bor">
+    <a href="">กองที่ 1.1</a>
+  </div> -->
+  <div class="layout horizontal">
+    <div class="layout vertical">
+      <template is="dom-repeat" items="[[treemenu]]">
+        <div class="flex bor">
+          <a href="#" id="[[item.id]]" data="[[item.data]]"on-tap="returnId">[[item.pile]]</a>
+          <template is="dom-repeat" items="[[item.subpile]]">
+            <div class="flex bor">
+              <a href="#" id="[[item.id]]" data="[[item.data]]"on-tap="returnId">[[item.pile]]</a>
+              <template is="dom-repeat" items="[[item.subpile]]">
+                <div class="flex bor">
+                  <a href="#" id="[[item.id]]" data="[[item.data]]"on-tap="returnId">[[item.pile]]</a>
+                </div>
+              </template>
+            </div>
+          </template>
+        </div>
+      </template>
+      <!-- end layout vertical  -->
+    </div>
+    <div class="flex bor">
+      {{idtree}}
+    </div>
+  </div>
+</div>
+</template>
+<script>
+Polymer({
+  is: "my-listtree",
+  properties: {
+    idtree: {
+      type: Object,
+      value:''
+    }
+  },
+  returnId:function (e) {
+    console.log(e.target.id);
+    this.idtree = e.target.data;
+  }
+});
+</script>
+</dom-module>

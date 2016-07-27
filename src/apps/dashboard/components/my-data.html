@@ -1,0 +1,302 @@
+<!-- call by my-main -->
+<dom-module id="my-data">
+  <template>
+      <!-- {{lineData}} -->
+  </template>
+  <script>
+    Polymer({
+      is: "my-data",
+      properties: {
+        linedata: {
+          type: Object,
+          notify: true,
+          value: [
+              { id:0 , nameMenu:"ข้อมูล 1" , detail:"รายละเอียด 1" },
+              { id:1 , nameMenu:"ข้อมูล 2" , detail:"รายละเอียด 2" },
+              { id:2 , nameMenu:"ข้อมูล 3" , detail:"รายละเอียด 3" }
+            ]
+        },
+        dataselect:{
+          type: Object,
+          notify:true
+        },
+        ldata:{
+          type: Object,
+          notify:true,
+          value:[
+              {
+                number:"1",
+                detail:[
+                  {
+                    id:0 ,
+                    nameMenu:"ข้อมูล 1" ,
+                    detail:"รายละเอียด 1" ,
+                    dropdown:3,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:1 ,
+                    nameMenu:"ข้อมูล 2" ,
+                    detail:"รายละเอียด 2",
+                    dropdown:2,
+                    radiogroup:'c',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  }
+                ]
+              },
+              {
+                number:"2",
+                detail:[
+                  {
+                    id:2 ,
+                    nameMenu:"ข้อมูล 1" ,
+                    detail:"รายละเอียด 1",
+                    dropdown:1,
+                    radiogroup:'a',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:3 ,
+                    nameMenu:"ข้อมูล 2" ,
+                    detail:"รายละเอียด 2",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  }
+                ]
+              },
+              {
+                number:"3",
+                detail:[
+                  {
+                    id:4 ,
+                    nameMenu:"ข้อมูล 1" ,
+                    detail:"รายละเอียด 1",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:5 ,
+                    nameMenu:"ข้อมูล 2" ,
+                    detail:"รายละเอียด 2",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:6 ,
+                    nameMenu:"ข้อมูล 3" ,
+                    detail:"รายละเอียด 3",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  }
+                ]
+              },
+              {
+                number:"4",
+                detail:[
+                  {
+                    id:7 ,
+                    nameMenu:"ข้อมูล 1" ,
+                    detail:"รายละเอียด 1",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:8 ,
+                    nameMenu:"ข้อมูล 2" ,
+                    detail:"รายละเอียด 2",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  }
+                ]
+              },
+              {
+                number:"5",
+                detail:[
+                  {
+                    id:9 ,
+                    nameMenu:"ข้อมูล 1" ,
+                    detail:"รายละเอียด 1",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  }
+                ]
+              },
+              {
+                number:"6",
+                detail:[
+                  {
+                    id:10 ,
+                    nameMenu:"ข้อมูล 1" ,
+                    detail:"รายละเอียด 1",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:11 ,
+                    nameMenu:"ข้อมูล 2" ,
+                    detail:"รายละเอียด 2",
+                    dropdown:2,
+                    radiogroup:'c',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:12 ,
+                    nameMenu:"ข้อมูล 3" ,
+                    detail:"รายละเอียด 3",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:13 ,
+                    nameMenu:"ข้อมูล 4" ,
+                    detail:"รายละเอียด 4",
+                    dropdown:2,
+                    radiogroup:'a',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  }
+                ]
+              },
+              {
+                number:"7",
+                detail:[
+                  {
+                    id:14 ,
+                    nameMenu:"ข้อมูล 1" ,
+                    detail:"รายละเอียด 1",
+                    dropdown:2,
+                    radiogroup:'a',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  },
+                  {
+                    id:15 ,
+                    nameMenu:"ข้อมูล 2" ,
+                    detail:"รายละเอียด 2",
+                    dropdown:2,
+                    radiogroup:'b',
+                    check1:true,
+                    check2:false,
+                    check3:true
+                  }
+                ]
+              }
+          ]
+        },
+        menuselect:{
+          type: Object,
+          notify:true
+        },
+        stepmenu:{
+          type: Object,
+          notify:true,
+          value: [
+              { id:0 , namestepmenu:"ข้อมูล 1" , url:"รายละเอียด 1" },
+              { id:1 , namestepmenu:"ข้อมูล 2" , url:"รายละเอียด 2" },
+              { id:2 , namestepmenu:"ข้อมูล 3" , url:"รายละเอียด 3" }
+            ]
+        },
+        treemenu:{
+          type: Object,
+          notify:true,
+          value: [
+              { id:0 ,
+                pile:"กอง 1" ,
+                data:"ข้อมูลของกองที่ 1",
+                subpile:[
+                          {
+                              id:1 ,
+                              pile:"กอง 1.1",
+                              data:"ข้อมูลของกองที่ 1.1"
+                          },
+                        ]
+              },
+              { id:4 ,
+                pile:"กอง 2" ,
+                data:"ข้อมูลของกองที่ 2",
+                subpile:[
+                          {
+                              id:6 ,
+                              pile:"กอง 2.1" ,
+                              data:"ข้อมูลของกองที่ 2.1",
+                              subpile:[
+                                        {
+                                            id:7 ,
+                                            pile:"กอง 2.1.1",
+                                            data:"ข้อมูลของกองที่ 2.1.1"
+                                        },
+                                      ]
+                          }
+                        ]
+              },
+              { id:5 ,
+                pile:"กอง 3" ,
+                data:"ข้อมูลของกองที่ 3"
+              }
+            ]
+        }
+      },
+      globaldata : function (data){
+        this.dataselect = data;
+        //เลือกแก้ไขข้อมูล โดนเรียกจากไฟล์  my-editdata.html
+      },
+      adddata:function (idarray,data) {
+          this.push('ldata.'+idarray+'.detail',data);
+          this.ldata = JSON.parse(JSON.stringify(this.ldata));
+      },
+      save:function(idparent,id,data){
+        var index = this.ldata[idparent].detail.indexOf(id);
+        var sendData = JSON.parse(JSON.stringify(data));
+        this.splice('ldata.'+idparent+'.detail',index,1,sendData);
+        this.ldata = JSON.parse(JSON.stringify(this.ldata));
+        //console.log(this.get('ldata.'+idparent+'.detail'));
+      },
+      deletes:function (idparent,ids) {
+      var index = this.ldata[idparent].detail.indexOf(ids);
+        //console.log(index);
+        this.splice('ldata.'+idparent+'.detail',index,1);
+        this.ldata = JSON.parse(JSON.stringify(this.ldata));
+      }
+
+
+    });
+  </script>
+</dom-module>

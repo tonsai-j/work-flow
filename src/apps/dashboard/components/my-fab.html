@@ -1,0 +1,41 @@
+<!-- call by my-worktimeline.html -->
+<dom-module id="my-fab">
+  <style>
+  paper-fab{
+    z-index: 1;
+  }
+  </style>
+  <template>
+    <paper-fab label$="[[num]]" title$="ลำดับที่ [[num]]" id="number_[[num]]" on-tap="changemenu"></paper-fab>
+    <paper-badge for$="number_[[num]]" label="[[lengthdata]]"></paper-badge>
+  </template>
+  <script>
+  Polymer({
+    is: "my-fab",
+    properties: {
+      count: {
+        type: Number,
+        value:0
+      },
+      selectarray:{
+        type: Number,
+        notify:true,
+      }
+    },
+
+    attached: function() {
+          this.dataedit = document.getElementById('data');
+          // console.log(this.lengthdata);
+    },
+    changemenu:function(e){
+      // เลขในอาเรย์
+      // console.log(e.currentTarget.id);
+      this.selectarray = (e.currentTarget.id.substring(7, 8))-1;
+      // console.log(this.selectarray);
+      // call my-data.html
+      // this.dataedit.menudata(this.selectarray);
+    }
+
+  });
+  </script>
+</dom-module>

@@ -1,0 +1,110 @@
+<!-- call by management-data.html -->
+<dom-module id="dashboard-components-stepformwizard">
+<style include="iron-flex iron-flex-alignment iron-flex-factors">
+.heading{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.card-content{
+  padding: 20px;
+}
+.nev{
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  border-top:1px solid #1D864A;
+  border-bottom:1px solid #1D864A;
+  border-right: 1px solid #1D864A;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  color: white;
+  background-color: #27AE60;
+}
+a::before{
+  content: '';
+  float: left;
+  position: relative;
+  right: 20;
+  width: 0;
+  height: 0;
+  border-top: 20px inset transparent;
+  border-bottom: 20px inset transparent;
+  border-left: 20px solid white;
+}
+a:first-child::before{
+  border-top: 20px solid #1D864A;
+  border-bottom: 20px solid #1D864A;
+  border-left: 1px solid #1D864A;
+}
+a::after{
+  content: '';
+  float: right;
+  width: 0;
+  height: 0;
+  position: relative;
+  left: 20px;
+  border-top: 20px inset transparent;
+  border-bottom: 20px inset transparent;
+  border-left: 20px solid #27AE60;
+  z-index: 1;
+}
+a:hover::after{
+  width: 0;
+  height: 0;
+  border-top: 20px inset transparent;
+  border-bottom: 20px inset transparent;
+  border-left: 20px solid white;
+}
+a:last-of-type::after{
+  left: 21px;
+  width: 0;
+  height: 0;
+  border-top: 20px inset transparent;
+  border-bottom: 20px inset transparent;
+  border-left: 20px solid white;
+}
+a:hover{
+  background-color: white;
+  color: #27AE60;
+}
+.selected{
+  color: #27AE60;
+  background-color: white;
+}
+.selected:after{
+  width: 0;
+  height: 0;
+  border-top: 20px inset transparent;
+  border-bottom: 20px inset transparent;
+  border-left: 20px solid white;
+}
+</style>
+<template>
+  <div class="card-content">
+    <div class="heading">Step Form Wizard </div>
+    <div class="nev layout horizontal">
+      <template is="dom-repeat" items="{{sfwizard}}">
+        <a href="#" id="{{index}}" class="flex" on-tap="changestep" >ค่า index :</span>{{index}} <span>ค่า ID :</span>{{item.id}}{{item.namestepmenu}}</a>
+      </template>
+      <!-- <a id="Profile" href="#" class="flex" on-tap="changestep">1 Profile</a>
+      <a id="Account" href="#" class="flex selected" on-tap="changestep">2 Account</a>
+      <a id="Extras" href="#" class="flex" on-tap="changestep">3 Extras</a>
+      <a id="AXE" href="#" class="flex" on-tap="changestep">4 AXE</a> -->
+    </div>
+</div>
+</template>
+<script>
+Polymer({
+  is: "dashboard-components-stepformwizard",
+  changestep:function (e) {
+    var count = document.getElementsByTagName('A').length;
+    for (var i = 0; i < count; i++) {
+      document.getElementsByTagName("A")[i].classList.remove("selected");
+    }
+    document.getElementById(e.currentTarget.id).className += " selected";
+  }
+});
+</script>
+</dom-module>

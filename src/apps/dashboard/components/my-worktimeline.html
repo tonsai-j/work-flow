@@ -1,0 +1,127 @@
+<link rel="import" href="my-fab.html">
+<!-- call by management-data.html -->
+<dom-module id="my-worktimeline">
+  <!-- import classes in an element -->
+
+<style include="iron-flex iron-flex-alignment iron-flex-factors">
+.heading{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+paper-fab{
+  z-index: 1;
+}
+.bd{
+  /*border: 1px solid #000;*/
+}
+canvas{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 0;
+  /*border: 1px solid #000;*/
+}
+</style>
+<template>
+  <div class="heading">chart </div>
+  <div class="card-content">
+    {{id2}}
+    <div class="layout vertical">
+      <div class="layout horizontal">
+        <div class="flex bd">
+        </div>
+        <div class="flex bd layout center-justified">
+          <my-fab lengthdata="{{id2}}"num="2" selectarray={{numselect}}></my-fab>
+        </div>
+        <div class="flex bd">
+          <my-fab lengthdata="{{id3}}"num="3" selectarray={{numselect}}></my-fab>
+        </div>
+        <div class="flex bd">
+        </div>
+      </div>
+      <div class="layout horizontal">
+        <div class="flex-4 bd">
+          <my-fab lengthdata="{{id1}}"num="1" selectarray={{numselect}}></my-fab>
+        </div>
+        <div class="flex bd">
+          <my-fab lengthdata="{{id6}}"num="6" selectarray={{numselect}}></my-fab>
+        </div>
+        <div class="flex bd">
+          <my-fab lengthdata="{{id7}}"num="7" selectarray={{numselect}}></my-fab>
+        </div>
+      </div>
+      <div class="layout horizontal">
+        <div class="flex bd">
+        </div>
+        <div class="flex bd">
+          <my-fab lengthdata="{{id4}}"num="4" selectarray={{numselect}}></my-fab>
+        </div>
+        <div class="flex bd">
+          <my-fab lengthdata="{{id5}}"num="5" selectarray={{numselect}}></my-fab>
+        </div>
+        <div class="flex bd">
+        </div>
+      </div>
+      <canvas id="canvas" width="1300" height="180"></canvas>
+    </div>
+  </div>
+</template>
+<script>
+
+Polymer({
+  is: "my-worktimeline",
+  properties: {
+    numselect: {
+      type: Number,
+      notify:true,
+    }
+  },
+  ready: function() {
+
+    // this.$.canvas;
+    var canvas = this.$.canvas;
+    var context = canvas.getContext('2d');
+    context.beginPath();
+    context.strokeStyle = "black";
+    context.stroke();
+    // เส้นด้านบน
+    context.moveTo(50, 100);
+    // เส้น 1 ไปทางแยก
+    context.lineTo(200, 100);
+    // เส้น 2 ทางแยกไปเลข 2
+    context.lineTo(360, 50);
+    // เส้น 3 เลข 2 ไปเลข 3
+    context.lineTo(700, 50);
+    // เส้น 4 เลข 3 ไปเลข 6
+    context.lineTo(880, 100);
+    // เส้น 5 เลข 6 ไปเลข 7
+    context.lineTo(1100, 100);
+    // เส้นด้านล่าง
+    context.moveTo(200, 100);
+    // เส้น 7 ทางแยกเลข 1 มาเลข 4
+    context.lineTo(360, 160);
+    // เส้น 5 เลข 4 ไปเลข 5
+    context.lineTo(700, 160);
+    // เส้น 5 เลข 5 ไปเลข 6
+    context.lineTo(880, 100);
+    context.stroke();
+  },
+    observers: [
+    'countarray(datalength)'
+  ],
+  countarray: function(datalength) {
+    // console.log(datalength[0].detail.length);
+    this.id1 = datalength[0].detail.length;
+    this.id2 = datalength[1].detail.length;
+    this.id3 = datalength[2].detail.length;
+    this.id4 = datalength[3].detail.length;
+    this.id5 = datalength[4].detail.length;
+    this.id6 = datalength[5].detail.length;
+    this.id7 = datalength[6].detail.length;
+  },
+  attached: function() {
+    // console.log(this.lists);
+  }
+});
+</script>
+</dom-module>

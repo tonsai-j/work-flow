@@ -1,0 +1,37 @@
+<link rel="import" href="components/my-headmenu.html">
+<dom-module id="layout-main">
+  <template>
+      <paper-drawer-panel responsive-width="960px" drawer-width="0px">
+        <paper-scroll-header-panel drawer fixed>
+        </paper-scroll-header-panel>
+        <paper-scroll-header-panel main fixed>
+          <paper-toolbar class="medium-tall white">
+            <span class="title">Dash Board </span>
+            <div class="middle">
+              <my-headmenu selectedpage="{{selectedpage}}"></my-headmenu>
+            </div>
+          </paper-toolbar>
+          <div class="bg">
+            <tag-page-load></tag-page-load>
+          </div>
+          
+        </paper-scroll-header-panel>
+      </paper-drawer-panel>
+      
+    </html>
+  </template>
+  <script>
+    Polymer({
+      is:'layout-main',
+      behaviors:[nxTemplateBehavior,nxLocalesBehavior],
+      changeLanguage:function(){
+        if(this.language == 'th'){
+          this.switchLanguage('en');
+        }else{
+          this.switchLanguage('th');
+        }
+      }
+    });
+  </script>
+
+</dom-module>

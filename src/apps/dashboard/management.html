@@ -1,0 +1,138 @@
+<!--call by my-main.html -->
+<link rel="import" href="components/my-data.html">
+<link rel="import" href="components/my-stepformwizard.html">
+<link rel="import" href="components/my-listtree.html">
+<link rel="import" href="components/my-worktimeline.html">
+<dom-module id="dashboard-management">
+<style include="iron-flex iron-flex-alignment">  </style>
+<style>
+#add{
+  position: fixed;
+  z-index:1;
+  right: 0;
+  bottom: 0px;
+  margin-bottom: 10px;
+  margin-right: 25px;
+}
+#seeData{
+  margin: 5px;
+  padding: 5px;
+}
+.card-content{
+  border-top: 1px solid #F4F4F4;
+}
+paper-card{
+  margin: 10px;
+}
+paper-card > .heading{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+paper-listbox{
+  margin: 10px;
+}
+</style>
+<template>
+  <my-data id="data" ldata={{data}} menuselect="{{menuselected}}" dataselect={{selecteds}} stepmenu={{sfwizard}} treemenu={{treemenu}}></my-data>
+  <div class="layout vertical">
+    <paper-card>{{data}}
+      <my-worktimeline numselect="{{menudatas}}" datalength="{{lists}}"></my-worktimeline>
+    </paper-card>
+    <paper-card>
+      <dashboard-components-stepformwizard sfwizard={{sfwizard}}></dashboard-components-stepformwizard>
+    </paper-card>
+    <paper-card>
+      <my-listtree treemenu={{treemenu}}></my-listtree>
+    </paper-card>
+    <div class="layout horizontal" id="seeData">
+      <paper-card  class="flex">
+        <div class="heading">Data </div>
+        <div class="card-content"></div>
+        <div class="flex">
+          <paper-listbox>
+            <template is="dom-repeat" items="{{kkk}}">
+              <my-list menu="{{item}}" menuid={{selected}}></my-list>
+            </template>
+          </paper-listbox>
+        </div>
+      </paper-card>
+      <paper-card class="flex">
+        <div class="heading">Data </div>
+        <div class="card-content flex">
+          <my-editdata dataselect="{{modelRight}}" dataselectindex="{{dataright}}" idparent="{{menudatas}}"></my-editdata>
+        </div>
+      </paper-card>
+    </div>
+  </div>
+
+  <paper-fab icon="add" title="เพิ่ม" mini id="add" on-tap="addmenu"></paper-fab>
+</template>
+<script>
+Polymer({
+  is: "dashboard-management",
+  properties: {
+    menudatas: {
+      type: Number,
+      value:-1
+    },
+    menunum: {
+      type: Number,
+      value:0
+    },
+    kkk : {
+      type:Object,
+    },
+    selected:{
+      type:Object,
+    }
+  },
+  observers: [
+    'changenum(menudatas)',
+    'checkData(lists)',
+    'checkDataRight(dataright)'
+  ],
+  checkDataRight:function(data){
+    this.modelRight = JSON.parse(JSON.stringify(data));
+  },
+  checkData:function(data){
+    if (this.menudatas > -1){
+      this.kkk = this.lists[this.menudatas].detail;
+    }
+  },
+  changenum: function(menudatas) {
+    if (menudatas > -1){
+      this.kkk = this.lists[menudatas].detail;
+    }
+  },
+  attached: function() {
+    this.globalData= document.getElementById('data');
+  },
+  addmenu:function(){
+    var nowDateTime=Date.now()
+    this.globalData.adddata(this.menudatas,{
+      id:nowDateTime ,
+      nameMenu:"ข้อมูล 1" ,
+      detail:"รายละเอียด 1",
+      dropdown:2,
+      radiogroup:'b',
+      check1:true,
+      check2:false,
+      check3:true
+    });
+    // this.checkData(this.lists);
+    // menudatas++;
+    this.kkk = JSON.parse(JSON.stringify(this.lists[this.menudatas].detail));
+    console.log(this.kkk);
+    console.log(this.lists);
+  },
+  behaviors: [
+        nxPageBehavior
+        // nxLocalesBehavior
+      ],
+      created:function(){
+        // this.nxSetTitle('page 1');
+        this.nxSetLayout('layout-main');
+      }
+});
+</script>
+</dom-module>
