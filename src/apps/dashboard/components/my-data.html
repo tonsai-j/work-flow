@@ -274,40 +274,12 @@
       },
       addData:function (menudatas,data) {
           this.push('ldata.'+menudatas+'.detail',data);
-          this.ldata = JSON.parse(JSON.stringify(this.ldata));
       },
       saveData:function(data){
-        console.log(data);
-        //console.log(t);
-        // var index = this.ldata[idparent].detail.indexOf(id);
-        // var sendData = JSON.parse(JSON.stringify(data));
-        // this.splice('ldata.'+idparent+'.detail',index,1,sendData);
-        // this.ldata = JSON.parse(JSON.stringify(this.ldata));
-        //console.log(this.get('ldata.'+idparent+'.detail'));
-        this.ldata[data.idparent].detail[data.dataselect] = data.data;
-        var sendData = JSON.parse(JSON.stringify(this.ldata));
-        this.set('ldata',sendData);
-        
+        this.set('ldata.'+data.idparent+'.detail.'+data.dataselect,data.data);
       },
       delData:function(data) {
-        // var index = this.ldata[idparent].detail.indexOf(ids);
-        // //console.log(index);
         this.splice('ldata.'+data.idparent+'.detail',data.dataselect,1);
-        var sendData = JSON.parse(JSON.stringify(this.ldata));
-        this.set('ldata',sendData);
-        // this.ldata = JSON.parse(JSON.stringify(this.ldata));
-      },
-      ready:function(){
-        //this.splice('ldata','sss');
-        // querySystem.addEventListener('addData',this.addData);
-        // querySystem.addEventListener('saveData',this.saveData);
-        // querySystem.addEventListener('delData',this.delData);
-      },
-      detached:function(){
-        // console.log('del');
-        // querySystem.removeEventListener('addData',this.addData);
-        // querySystem.removeEventListener('saveData',this.saveData);
-        // querySystem.removeEventListener('delData',this.delData);
       }
     });
   </script>

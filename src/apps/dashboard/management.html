@@ -85,7 +85,8 @@ Polymer({
     console.log(menudatas);
     console.log(data);
     if(typeof this.data[this.menudatas] != "undefined"){
-      return this.data[this.menudatas].detail;
+      //return this.data[this.menudatas].detail; //ข้อมูลเปลี่ยนจริงแต่ Repeat ไม่ได้จร้า
+      return JSON.parse(JSON.stringify(this.data[this.menudatas].detail)); //ต้องใช้วิธีโครนตัวแปรก่อนอยู่ดี
     }
   },
   behaviors: [nxPageBehavior],
