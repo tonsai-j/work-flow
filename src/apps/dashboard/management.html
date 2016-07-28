@@ -5,6 +5,7 @@
 <link rel="import" href="components/my-worktimeline.html">
 <link rel="import" href="components/my-editdata.html">
 <link rel="import" href="components/my-list.html">
+<link rel="import" href="components/my-timeline.html">
 <dom-module id="dashboard-management">
 <style include="iron-flex iron-flex-alignment">  </style>
 <style>
@@ -39,6 +40,9 @@ paper-listbox{
   <div class="layout vertical">
     <paper-card>
       <my-worktimeline numselect="{{menudatas}}" datalength="{{data}}"></my-worktimeline>
+    </paper-card>
+    <paper-card>
+      <my-timeline ></my-timeline>
     </paper-card>
     <!--{{menudatas}}-->
     <paper-card>
@@ -98,7 +102,7 @@ Polymer({
       this.menudatas = 10;
       this.menudatas = selectC;
     }
-    
+
   },
   addmenu:function(){
     var nowDateTime=Date.now();

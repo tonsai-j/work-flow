@@ -1,0 +1,125 @@
+<dom-module id="my-timeline">
+<style include="iron-flex iron-flex-alignment iron-flex-factors">
+.heading{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.card-content{
+  padding: 20px;
+}
+.container{
+  width: 100%;
+}
+/*.progressbar{
+counter-reset: step;
+}
+.progressbar li {
+list-style-type: none;
+float: left;
+width: 20%;
+position: relative;
+text-align: center;
+}
+.progressbar li::before{
+content: counter(step);
+counter-increment: step;
+width: 30px;
+height: 30px;
+line-height: 30px;
+border: 1px solid #ddd;
+display: block;
+text-align: center;
+margin: 0 auto 10px auto;
+border-radius: 50%;
+z-index: 3;
+background-color: #FFF;
+}
+.progressbar li::after{
+content: '';
+position: absolute;
+width: 100%;
+height: 1px;
+background-color: #ddd;
+top: 15px;
+left: -50%;
+z-index: 2;
+}
+.progressbar li:first-child::after{
+content: none;
+color: red;
+}
+.progressbar li.active{
+color: green;
+}
+.progressbar li.active:before{
+border-color: green;
+}
+.progressbar li.active + li:after{
+background-color: green;
+}*/
+</style>
+<style include="iron-flex iron-flex-alignment iron-flex-factors">
+paper-menu.headmenu{
+  /*counter-reset: step;*/
+}
+paper-item.menu span.numberMenu{
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 30px;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.iron-selected{
+  background-color: red;
+}
+.headmenu paper-item.menu{
+  /*color: red;*/
+  border-color: transparent;
+}
+</style>
+<template>
+  <div class="heading">Tree</div>
+  <div class="card-content">
+    <!-- <div class="container">
+    <ul class="progressbar">
+    <li class="active"> ฟ้อง</li>
+    <li>รับฟ้อง</li>
+    <li>อ่านฟ้อง</li>
+    <li>พิจาณานาฟ้อง</li>
+    <li>จบฟ้อง</li>
+  </ul>
+</div> -->
+
+    <paper-menu class="headmenu">
+      <paper-item class="menu">
+        <span class="numberMenu">1</span>
+        <span>ฟ้อง</span>
+      </paper-item>
+      <paper-item class="menu">
+        <span class="numberMenu">2</span>
+        <span>รับฟ้อง</span>
+      </paper-item>
+      <paper-item class="menu actives">
+        <span class="numberMenu">3</span>
+        <span>อ่านฟ้อง</span>
+      </paper-item>
+      <paper-item class="menu">
+        <span class="numberMenu">4</span>
+        <span>พิจาณานาฟ้อง</span>
+      </paper-item>
+      <paper-item class="menu">
+        <span class="numberMenu">5</span>
+        <span>จบฟ้อง</span>
+      </paper-item>
+    </paper-menu>
+  </div>
+</template>
+<script>
+Polymer({
+  is: "my-timeline",
+
+});
+</script>
+</dom-module>
