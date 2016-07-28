@@ -122,11 +122,14 @@ paper-button.edit {
 <script>
 Polymer({
   is: "my-editdata",
+  behaviors: [nxPageBehavior,nxCoreBehavior],
   save: function(){
-    dataQuery.saveData({ idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect });
+    var model = this.nxGetGlobalElement('myData');
+    model.saveData({ idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect });
   },
   delete:function() {
-    dataQuery.delData({ idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect });
+    var model = this.nxGetGlobalElement('myData');
+    model.delData({ idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect });
   }
 });
 </script>

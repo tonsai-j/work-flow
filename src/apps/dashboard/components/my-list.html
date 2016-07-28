@@ -33,7 +33,7 @@
       },
       getdata:function() {
         var preData = this.menu.index = this.index;
-        this.menuid=this.menu;
+        this.menuid=JSON.parse(JSON.stringify(this.menu));
       }
     });
   </script>

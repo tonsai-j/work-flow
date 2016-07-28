@@ -92,14 +92,15 @@ Polymer({
       
     }
   },
-  behaviors: [nxPageBehavior],
+  behaviors: [nxPageBehavior,nxCoreBehavior],
   created:function(){
     this.nxSetTitle('Work Timeline');
     this.nxSetLayout('layout-main');
   },
   addmenu:function(){
     var nowDateTime=Date.now();
-    dataQuery.addData(this.menudatas,{
+    var model = this.nxGetGlobalElement('myData');
+    model.addData(this.menudatas,{
       id:nowDateTime ,
       nameMenu:"ข้อมูล 1" ,
       detail:"รายละเอียด 1",

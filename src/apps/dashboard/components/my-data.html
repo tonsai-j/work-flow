@@ -3,6 +3,7 @@
   <script>
     Polymer({
       is: "my-data",
+      behaviors: [nxCoreBehavior],
       properties: {
         linedata: {
           type: Object,
@@ -282,8 +283,7 @@
         this.splice('ldata.'+data.idparent+'.detail',data.dataselect,1);
       },
       created:function(){
-        console.log('created');
-        dataQuery = this;
+        this.nxSetGlobalElement('myData');
       }
     });
   </script>

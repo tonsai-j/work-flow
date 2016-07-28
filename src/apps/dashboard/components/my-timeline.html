@@ -59,26 +59,39 @@ background-color: green;
 }*/
 </style>
 <style include="iron-flex iron-flex-alignment iron-flex-factors">
-paper-menu.headmenu{
-  /*counter-reset: step;*/
-}
-paper-item.menu span.numberMenu{
-  border: 1px solid #000;
-  text-align: center;
-  line-height: 30px;
-  width: 30px;
-  height: 30px;
-  margin-right: 10px;
-  border-radius: 50%;
-}
-.iron-selected{
-  background-color: red;
-}
-.headmenu paper-item.menu{
-  /*color: red;*/
-  border-color: transparent;
-}
+  paper-menu.headmenu{
+    --paper-menu-background-color:var(--paper-grey-100);
+  }
+  paper-item.menu {
+    border-color: transparent;
+    --paper-item-focused: {
+      background-color: var(--paper-grey-300);
+      font-weight: bold;
+      color: black;
+      border: 1px solid red;
+    };
+    --paper-item-focused-before: {
+      opacity: 0;
+    };
+    --paper-item:{
+      color: var(--paper-grey-400);
+    };
+  }
+  paper-item.menu span.numberMenu{
+    border: 1px solid #BDBDBD;
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #FFF;
+  }
+  paper-item.menu span.numberMenu:hover{
+    
+  }
 </style>
+
 <template>
   <div class="heading">Tree</div>
   <div class="card-content">
@@ -91,7 +104,6 @@ paper-item.menu span.numberMenu{
     <li>จบฟ้อง</li>
   </ul>
 </div> -->
-
     <paper-menu class="headmenu">
       <paper-item class="menu">
         <span class="numberMenu">1</span>
