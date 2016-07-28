@@ -107,17 +107,18 @@ Polymer({
     context.stroke();
   },
     observers: [
-    'countarray(datalength)'
+    'countarray(datalength.*)'
   ],
   countarray: function(datalength) {
-    // console.log(datalength[0].detail.length);
-    this.id1 = datalength[0].detail.length;
-    this.id2 = datalength[1].detail.length;
-    this.id3 = datalength[2].detail.length;
-    this.id4 = datalength[3].detail.length;
-    this.id5 = datalength[4].detail.length;
-    this.id6 = datalength[5].detail.length;
-    this.id7 = datalength[6].detail.length;
+    //console.log(datalength);
+
+    this.id1 = datalength.base[0].detail.length;
+    this.id2 = datalength.base[1].detail.length;
+    this.id3 = datalength.base[2].detail.length;
+    this.id4 = datalength.base[3].detail.length;
+    this.id5 = datalength.base[4].detail.length;
+    this.id6 = datalength.base[5].detail.length;
+    this.id7 = datalength.base[6].detail.length;
   },
   attached: function() {
     // console.log(this.lists);
