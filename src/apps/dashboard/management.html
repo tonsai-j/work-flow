@@ -53,7 +53,7 @@ paper-listbox{
         <div class="card-content"></div>
         <div class="flex">
           <paper-listbox>
-            <template is="dom-repeat" items="[[filterData(menudatas)]]">
+            <template is="dom-repeat" items="[[filterData(menudatas,data.*)]]">
               <my-list menu="{{item}}" menuid="{{selected}}" index="{{index}}"></my-list>
             </template>
           </paper-listbox>
@@ -75,14 +75,15 @@ Polymer({
   is: "dashboard-management",
   properties: {
     data:{
-      type:Object,
-      observer:'test'
+      type:Object
     },
     menudatas:{
       type:Number
     }
   },
-  filterData:function(){
+  filterData:function(menudatas,data){
+    console.log(menudatas);
+    console.log(data);
     if(typeof this.data[this.menudatas] != "undefined"){
       return this.data[this.menudatas].detail;
     }
@@ -91,14 +92,6 @@ Polymer({
   created:function(){
     this.nxSetTitle('Work Timeline');
     this.nxSetLayout('layout-main');
-  },
-  test:function(newVal,oldVal){
-    if(typeof oldVal != "undefined"){
-      var selectC = JSON.parse(JSON.stringify(this.menudatas));
-      this.menudatas = 10;
-      this.menudatas = selectC;
-    }
-    
   },
   addmenu:function(){
     var nowDateTime=Date.now();
