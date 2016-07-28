@@ -31,6 +31,10 @@
           notify:true
         }
       },
+      observers:['test(menu.*)'],
+      test:function(){
+        console.log('ob');
+      },
       getdata:function() {
         var preData = this.menu.index = this.index;
         this.menuid=this.menu;
