@@ -272,11 +272,17 @@
             ]
         }
       },
+      observers:['test(ldata.*)'],
+      test:function(d){
+        console.log('ob');
+      },
       addData:function (menudatas,data) {
           this.push('ldata.'+menudatas+'.detail',data);
       },
       saveData:function(data){
-        this.set('ldata.'+data.idparent+'.detail.'+data.dataselect,data.data);
+        
+        var sdata = JSON.parse(JSON.stringify(data.data))
+        this.set('ldata.'+data.idparent+'.detail.'+data.dataselect,sdata);
       },
       delData:function(data) {
         this.splice('ldata.'+data.idparent+'.detail',data.dataselect,1);
