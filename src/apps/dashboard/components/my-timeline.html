@@ -75,6 +75,12 @@ background-color: green;
     };
     --paper-item:{
       color: var(--paper-grey-400);
+      height: 60px;
+    };
+    --paper-item:{
+      color: var(--paper-grey-400);
+      height: 60px;
+      border-radius: 5px;
     };
   }
   paper-item.menu span.numberMenu{
@@ -87,8 +93,15 @@ background-color: green;
     border-radius: 50%;
     background-color: #FFF;
   }
-  paper-item.menu span.numberMenu:hover{
-    
+  paper-item.menu span.numberMenu::after{
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 2px;
+    height: 32px;
+    background-color: blue;
+    top: 44px;
+    left: 30px;
   }
 </style>
 
