@@ -99,10 +99,7 @@ Polymer({
   },
   addmenu:function(){
     var nowDateTime=Date.now();
-
-    var model = document.querySelector('my-data');
-
-    model.addData(this.menudatas,{
+    dataQuery.addData(this.menudatas,{
       id:nowDateTime ,
       nameMenu:"ข้อมูล 1" ,
       detail:"รายละเอียด 1",

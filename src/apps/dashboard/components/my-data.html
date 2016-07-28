@@ -280,6 +280,10 @@
       },
       delData:function(data) {
         this.splice('ldata.'+data.idparent+'.detail',data.dataselect,1);
+      },
+      created:function(){
+        console.log('created');
+        dataQuery = this;
       }
     });
   </script>

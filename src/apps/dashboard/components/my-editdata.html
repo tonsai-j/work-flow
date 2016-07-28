@@ -122,26 +122,11 @@ paper-button.edit {
 <script>
 Polymer({
   is: "my-editdata",
-  attached: function() {
-    this.dataedit = document.getElementById('data');
-    
-  },
   save: function(){
-    // this.dataedit.save(this.idparent,this.dataselectindex,this.dataselect);
-    // console.log(this.idparent,this.dataselectindex,this.dataselect);
-    //var data = { detail: { idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect } }
-    //var event = new CustomEvent('saveData',data);
-    //querySystem.dispatchEvent(event);
-
-    var model = document.querySelector('my-data');
-    model.saveData({ idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect });
-    
+    dataQuery.saveData({ idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect });
   },
   delete:function() {
-
-    var model = document.querySelector('my-data');
-    model.delData({ idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect });
-    
+    dataQuery.delData({ idparent: this.idparent , dataselect: this.dataselect.index , data:this.dataselect });
   }
 });
 </script>
