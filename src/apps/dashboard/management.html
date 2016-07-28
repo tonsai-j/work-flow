@@ -57,7 +57,7 @@ paper-listbox{
         <div class="card-content"></div>
         <div class="flex">
           <paper-listbox>
-            <template is="dom-repeat" items="[[filterData(menudatas)]]">
+            <template is="dom-repeat" items="[[filterData(menudatas,data.*)]]">
               <my-list menu="{{item}}" menuid="{{selected}}" index="{{index}}"></my-list>
             </template>
           </paper-listbox>
@@ -79,16 +79,17 @@ Polymer({
   is: "dashboard-management",
   properties: {
     data:{
-      type:Object,
-      observer:'test'
+      type:Object
     },
     menudatas:{
       type:Number
     }
   },
-  filterData:function(){
+  filterData:function(menudatas,data){
     if(typeof this.data[this.menudatas] != "undefined"){
-      return this.data[this.menudatas].detail;
+      //return this.data[this.menudatas].detail; //ข้อมูลเปลี่ยนจริงแต่ Repeat ไม่ได้จร้า   
+      return JSON.parse(JSON.stringify(this.data[this.menudatas].detail)); //ต้องใช้วิธีโครนตัวแปรก่อนอยู่ดี
+      
     }
   },
   behaviors: [nxPageBehavior],
@@ -96,6 +97,7 @@ Polymer({
     this.nxSetTitle('Work Timeline');
     this.nxSetLayout('layout-main');
   },
+<<<<<<< HEAD
   test:function(newVal,oldVal){
     if(typeof oldVal != "undefined"){
       var selectC = JSON.parse(JSON.stringify(this.menudatas));
@@ -104,6 +106,8 @@ Polymer({
     }
 
   },
+=======
+>>>>>>> 8db2918c5a787a4452187745244f6fd216152652
   addmenu:function(){
     var nowDateTime=Date.now();
 
