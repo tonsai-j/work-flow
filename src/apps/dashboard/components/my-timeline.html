@@ -34,7 +34,7 @@
       background-color: var(--paper-grey-300);
     }
   }
-  paper-item.menu span.numberMenu{
+  paper-item.menu span.index{
     border: 2px solid #BDBDBD;
     text-align: center;
     line-height: 30px;
@@ -44,10 +44,10 @@
     border-radius: 50%;
     background-color: #FFF;
   }
-  paper-item.iron-selected > span.numberMenu{
-    border: 2px solid blue;
+  paper-item.iron-selected > span.index{
+    border: 2px solid var(--paper-green-400);
   }
-  paper-item.menu > span.numberMenu::after{
+  paper-item.menu > span.index::after{
     content: '';
     position: absolute;
     width: 2px;
@@ -57,11 +57,11 @@
     left: 32px;
     z-index: 1;
   }
-  paper-item.iron-selected > span.numberMenu::after{
+  paper-item.iron-selected > span.index::after{
     /*border: 2px solid blue;*/
-    background-color: blue;
+    background-color: var(--paper-green-400);
   }
-  paper-item.menu:last-child > span.numberMenu::after{
+  paper-item.menu:last-child > span.index::after{
     background-color: transparent;
     height: 0px;
   }
@@ -72,24 +72,24 @@
   <div class="card-content">
     <paper-menu class="headmenu">
       <paper-item class="menu">
-        <span class="numberMenu">1</span>
-        <span>ฟ้อง</span>
+        <span class="index">1</span>
+        <span class="numberMenu">ฟ้อง</span>
       </paper-item>
       <paper-item class="menu">
-        <span class="numberMenu">2</span>
-        <span>รับฟ้อง</span>
+        <span class="index">2</span>
+        <span class="numberMenu">รับฟ้อง</span>
       </paper-item>
       <paper-item class="menu actives">
-        <span class="numberMenu">3</span>
-        <span>อ่านฟ้อง</span>
+        <span class="index">3</span>
+        <span class="numberMenu">อ่านฟ้อง</span>
       </paper-item>
       <paper-item class="menu">
-        <span class="numberMenu">4</span>
-        <span>พิจาณานาฟ้อง</span>
+        <span class="index">4</span>
+        <span class="numberMenu">พิจาณานาฟ้อง</span>
       </paper-item>
       <paper-item class="menu">
-        <span class="numberMenu">5</span>
-        <spa>จบฟ้อง</span>
+        <span class="index">5</span>
+        <spaื class="numberMenu">จบฟ้อง</span>
       </paper-item>
     </paper-menu>
   </div>
