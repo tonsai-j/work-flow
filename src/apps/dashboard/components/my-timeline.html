@@ -11,8 +11,7 @@
   width: 100%;
 }
 
-</style>
-<style include="iron-flex iron-flex-alignment iron-flex-factors">
+
   paper-menu.headmenu{
     --paper-menu-background-color:var(--paper-grey-100);
   }
@@ -20,39 +19,47 @@
     --paper-item-focused-before: {
       opacity: 0;
     };
+    /*กำหนดคุณสมบัญไอแทม*/
     --paper-item:{
       color: var(--paper-grey-400);
       height: 60px;
-      border-radius: 5px;
-      z-index: 1;
     };
     --paper-item-focused: {
       background-color: var(--paper-grey-300);
       font-weight: bold;
       color: black;
-      z-index: 0;
     };
+    /*หลังจากเลือกแล้วกดเลือกอันอื่น*/
+    --paper-item-selected:{
+      background-color: var(--paper-grey-300);
+    }
   }
   paper-item.menu span.numberMenu{
-    border: 1px solid #BDBDBD;
+    border: 2px solid #BDBDBD;
     text-align: center;
     line-height: 30px;
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    width: 29px;
+    height: 31px;
+    margin-right: 15px;
     border-radius: 50%;
     background-color: #FFF;
+  }
+  paper-item.iron-selected > span.numberMenu{
+    border: 2px solid blue;
   }
   paper-item.menu > span.numberMenu::after{
     content: '';
     position: absolute;
-    top: 20px;
     width: 2px;
-    height: 31px;
+    height: 26px;
+    background-color: var(--paper-grey-400);
+    top: 46.5px;
+    left: 32px;
+    z-index: 1;
+  }
+  paper-item.iron-selected > span.numberMenu::after{
+    /*border: 2px solid blue;*/
     background-color: blue;
-    top: 44px;
-    left: 30px;
-    z-index: -1;
   }
   paper-item.menu:last-child > span.numberMenu::after{
     background-color: transparent;
@@ -63,15 +70,6 @@
 <template>
   <div class="heading">Tree</div>
   <div class="card-content">
-    <!-- <div class="container">
-    <ul class="progressbar">
-    <li class="active"> ฟ้อง</li>
-    <li>รับฟ้อง</li>
-    <li>อ่านฟ้อง</li>
-    <li>พิจาณานาฟ้อง</li>
-    <li>จบฟ้อง</li>
-  </ul>
-</div> -->
     <paper-menu class="headmenu">
       <paper-item class="menu">
         <span class="numberMenu">1</span>
