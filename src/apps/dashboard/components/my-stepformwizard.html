@@ -99,11 +99,13 @@ a:hover{
 Polymer({
   is: "dashboard-components-stepformwizard",
   changestep:function (e) {
-    var count = document.getElementsByTagName('A').length;
-    for (var i = 0; i < count; i++) {
-      document.getElementsByTagName("A")[i].classList.remove("selected");
-    }
-    document.getElementById(e.currentTarget.id).className += " selected";
+    console.log(document.getElementsByTagName('.flex'));
+    // var count = document.getElementsByTagName('A').length;
+    // for (var i = 0; i < count; i++) {
+      // document.getElementsByTagName("A")[i].classList.remove("selected");
+    // }
+    // if(document.getElementById(e.currentTarget.id).className != null)
+      // document.getElementById(e.currentTarget.id).className += " selected";
   }
 });
 </script>

@@ -1,132 +1,159 @@
+
 <dom-module id="my-timeline">
-<style include="iron-flex iron-flex-alignment iron-flex-factors">
-.heading{
-  margin-top: 10px;
-  margin-left: 10px;
-}
-.card-content{
-  padding: 20px;
-}
-.container{
-  width: 100%;
-}
-
-
-  paper-menu.headmenu{
-    --paper-menu-background-color:var(--paper-grey-100);
-  }
-  paper-item.menu {
-    --paper-item-focused-before: {
-      opacity: 0;
-    };
-    /*กำหนดคุณสมบัญไอแทม*/
-    --paper-item:{
-      color: var(--paper-grey-400);
-      height: 60px;
-    };
-    --paper-item-focused: {
-      background-color: var(--paper-grey-300);
-      font-weight: bold;
-      color: black;
-    };
-    /*หลังจากเลือกแล้วกดเลือกอันอื่น*/
-    --paper-item-selected:{
-      background-color: var(--paper-grey-300);
+  <style include="iron-flex iron-flex-alignment iron-flex-factors">
+    .heading{
+      margin-top: 10px;
+      margin-left: 10px;
     }
-  }
-  paper-item.menu span.index{
-    border: 2px solid #BDBDBD;
-    text-align: center;
-    line-height: 30px;
-    width: 29px;
-    height: 31px;
-    margin-right: 15px;
-    border-radius: 50%;
-    background-color: #FFF;
-  }
-  /*เลือก*/
-  paper-item.iron-selected > span.index{
-    border: 2px solid var(--paper-green-400);
-  }
-  /*หลังเลือกแล้ว*/
-  paper-item.menu > span.fin{
-    border-color: var(--paper-green-400);
-  }
-  paper-item.menu > span.index::after{
-    content: '';
-    position: absolute;
-    width: 2px;
-    height: 26px;
-    background-color: var(--paper-grey-400);
-    top: 46.5px;
-    left: 32px;
-    z-index: 1;
-  }
-  paper-item.iron-selected > span.index::after{
-    background-color: var(--paper-green-400);
-  }
-  paper-item.menu > span.fin::after{
-    background-color: var(--paper-green-400);
-  }
-  paper-item.menu:last-child > span.index::after{
-    background-color: transparent;
-    height: 0px;
-  }
-  .no-fin{
-    border: 2px solid var(--paper-green-400);
-    /*background-color: var(--paper-green-400);*/
-  }
-</style>
-
-<template>
-  <div class="heading">Tree</div>
-  <div class="card-content">
-    <paper-menu class="headmenu" selected="{{selected}}">
-      <paper-item class="menu">
-        <span class="index fin">1</span>
-        <span class="numberMenu">ฟ้อง</span>
-      </paper-item>
-      <paper-item class="menu">
-        <span class="index">2</span>
-        <span class="numberMenu">รับฟ้อง</span>
-      </paper-item>
-      <paper-item class="menu actives">
-        <span class="index">3</span>
-        <span class="numberMenu">อ่านฟ้อง</span>
-      </paper-item>
-      <paper-item class="menu">
-        <span class="index">4</span>
-        <span class="numberMenu">พิจาณานาฟ้อง</span>
-      </paper-item>
-      <paper-item class="menu">
-        <span class="index">5</span>
-        <span class="numberMenu">จบฟ้อง</span>
-      </paper-item>
-    </paper-menu>
-  </div>
-<button type="button" name="button" on-tap="changeNum">เพิ่มเลข</button>
-
-</template>
-<script>
-Polymer({
-  is: "my-timeline",
-  properties: {
-    selected: {
-      type: Number,
-      value:0
+    .card-content{
+      padding: 20px;
     }
-  },
-  changeNum:function(){
-    this.selected = this.selected+1;
-    // console.log(this.selected);
-  },
-  observers: [
-   'changeUpdate(selected)'
- ],
-  changeUpdate: function(selected) {
-    console.log(selected);
-    console.log(document.getElementById('index'));
- }
-});
-</script>
+    .container{
+      width: 100%;
+    }
+
+
+
+        paper-menu.headmenu{
+          --paper-menu-background-color:var(--paper-grey-100);
+        }
+        paper-item.menu {
+          --paper-item-focused-before: {
+            opacity: 0;
+          };
+          /*กำหนดคุณสมบัญไอแทม*/
+          --paper-item:{
+            color: var(--paper-grey-400);
+            height: 60px;
+          };
+          --paper-item-focused: {
+            background-color: var(--paper-grey-300);
+            font-weight: bold;
+            color: black;
+          };
+          /*หลังจากเลือกแล้วกดเลือกอันอื่น*/
+          --paper-item-selected:{
+            background-color: var(--paper-grey-300);
+          }
+        }
+        paper-item.menu span.select{
+          border: 2px solid #BDBDBD;
+          text-align: center;
+          line-height: 30px;
+          width: 29px;
+          height: 31px;
+          margin-right: 15px;
+          border-radius: 50%;
+          background-color: #FFF;
+        }
+        /*เลือก*/
+        paper-item.iron-selected > span.select{
+          border: 2px solid var(--paper-green-400);
+        }
+        /*หลังเลือกแล้ว*/
+        paper-item.menu > span.fin{
+          border-color: var(--paper-green-400);
+        }
+        paper-item.menu > span.select::after{
+          content: '';
+          position: absolute;
+          width: 2px;
+          height: 26px;
+          background-color: var(--paper-grey-400);
+          top: 46.5px;
+          left: 32px;
+          z-index: 1;
+        }
+        paper-item.iron-selected > span.select::after{
+          background-color: var(--paper-green-400);
+        }
+        paper-item.menu > span.fin::after{
+          background-color: var(--paper-green-400);
+        }
+        paper-item.menu:last-of-type > span.select::after{
+          background-color: transparent;
+          height: 0px;
+        }
+        .no-fin{
+          border: 2px solid var(--paper-green-400);
+          /*background-color: var(--paper-green-400);*/
+        }
+        paper-item.menu > span[test]{
+          border-color: var(--paper-green-400);
+        }
+
+        paper-item.menu > span[test]::after{
+          background-color: var(--paper-green-400);
+        }
+
+  </style>
+
+  <template>
+    <div class="heading">Tree</div>
+    <div class="card-content">
+      <paper-menu class="headmenu" selected="{{selected}}">
+        <template is="dom-repeat" items="[[items]]">
+          <paper-item class="menu">
+            <span class="select" test$="{{testfun(index,selected)}}" index$="{{index}}">{{index}}</span>
+            <span class="numberMenu">{{item.nameMenu}}</span>
+          </paper-item>
+        </template>
+      </paper-menu>
+    </div>
+    <button type="button" name="button" on-tap="changeNum">เพิ่มเลข</button>
+  </template>
+
+  <script>
+    Polymer({
+      is: "my-timeline",
+      properties: {
+        selected: {
+          type: Number,
+          notify:true,
+          value:0
+        },
+        items:{
+          type:Object,
+          value: [
+              { id:0 , nameMenu:"ฟ้อง" },
+              { id:1 , nameMenu:"รับฟ้อง" },
+              { id:2 , nameMenu:"อ่านฟ้อง" },
+              { id:3 , nameMenu:"พิจาณานาฟ้อง" },
+              { id:4 , nameMenu:"จบฟ้อง" }
+            ]
+        }
+      },
+      testfun:function(index,selected){
+        console.log(index,selected);
+        if(index<=selected){
+          return true;
+        }else{
+          return false;
+        }
+
+      },
+      changeNum:function(){
+        this.selected = this.selected+1;
+      },
+      observers: [
+       'changeUpdate(selected)'
+       ],
+      changeUpdate: function(selected) {
+        // // console.log(selected);
+        // var select = Polymer.dom(this.root).querySelectorAll('.select');
+        // var fin = Polymer.dom(this.root).querySelectorAll('.fin');
+        // // console.log(index1[0].classList.remove("fin"));
+        // // console.log(index1[0].className += " fin");
+        // console.log(fin);
+        // console.log(fin.length);
+        // for (var i = 0; i < selected; i++) {
+        //   if (select[i].classList.contains('fin') != true ){
+        //     select[i].className += " fin";
+        //   }
+        //
+        // }
+     }
+    });
+  </script>
+
 </dom-module>
